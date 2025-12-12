@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_services_sections",
+  "info": {
+    "displayName": "ServiceCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "iconKey": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
