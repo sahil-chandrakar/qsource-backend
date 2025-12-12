@@ -436,6 +436,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     displayName: 'HomePage';
     pluralName: 'home-pages';
     singularName: 'home-page';
+export interface ApiWhatWeOfferWhatWeOffer extends Struct.CollectionTypeSchema {
+  collectionName: 'what_we_offers';
+  info: {
+    displayName: 'what-we-offer';
+    pluralName: 'what-we-offers';
+    singularName: 'what-we-offer';
   };
   options: {
     draftAndPublish: true;
@@ -504,6 +510,16 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       'api::service.service'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::what-we-offer.what-we-offer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'offer.section', true>;
+    slug: Schema.Attribute.UID;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1022,6 +1038,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::service.service': ApiServiceService;
+      'api::what-we-offer.what-we-offer': ApiWhatWeOfferWhatWeOffer;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

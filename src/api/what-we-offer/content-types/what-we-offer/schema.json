@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "what_we_offers",
+  "info": {
+    "singularName": "what-we-offer",
+    "pluralName": "what-we-offers",
+    "displayName": "what-we-offer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "sections": {
+      "type": "component",
+      "component": "offer.section",
+      "repeatable": true
+    }
+  }
+}
